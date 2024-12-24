@@ -169,6 +169,8 @@ namespace ReClassNET.Forms
 			this.generateCSharpCodeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.undoToolbarMenuItem = new ReClassNET.Controls.TypeToolStripMenuItem();
+			this.redoToolbarMenuItem = new ReClassNET.Controls.TypeToolStripMenuItem();
 			((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
 			this.splitContainer.Panel1.SuspendLayout();
 			this.splitContainer.Panel2.SuspendLayout();
@@ -204,7 +206,7 @@ namespace ReClassNET.Forms
 			// 
 			this.splitContainer.Panel2.BackColor = System.Drawing.SystemColors.Control;
 			this.splitContainer.Panel2.Controls.Add(this.memoryViewControl);
-			this.splitContainer.Size = new System.Drawing.Size(1313, 524);
+			this.splitContainer.Size = new System.Drawing.Size(1103, 524);
 			this.splitContainer.SplitterDistance = 201;
 			this.splitContainer.TabIndex = 4;
 			// 
@@ -366,7 +368,7 @@ namespace ReClassNET.Forms
 			this.memoryViewControl.Location = new System.Drawing.Point(0, 0);
 			this.memoryViewControl.Name = "memoryViewControl";
 			this.memoryViewControl.NodeContextMenuStrip = this.selectedNodeContextMenuStrip;
-			this.memoryViewControl.Size = new System.Drawing.Size(1108, 524);
+			this.memoryViewControl.Size = new System.Drawing.Size(898, 524);
 			this.memoryViewControl.TabIndex = 0;
 			this.memoryViewControl.DrawContextRequested += new ReClassNET.Controls.DrawContextRequestEventHandler(this.memoryViewControl_DrawContextRequested);
 			this.memoryViewControl.SelectionChanged += new System.EventHandler(this.memoryViewControl_SelectionChanged);
@@ -787,10 +789,12 @@ namespace ReClassNET.Forms
             this.initClassFromRTTIToolStripBarMenuItem,
             this.addBytesToolStripDropDownButton,
             this.insertBytesToolStripDropDownButton,
-            this.nodeTypesToolStripSeparator});
+            this.nodeTypesToolStripSeparator,
+            this.undoToolbarMenuItem,
+            this.redoToolbarMenuItem});
 			this.toolStrip.Location = new System.Drawing.Point(0, 24);
 			this.toolStrip.Name = "toolStrip";
-			this.toolStrip.Size = new System.Drawing.Size(1313, 25);
+			this.toolStrip.Size = new System.Drawing.Size(1103, 25);
 			this.toolStrip.TabIndex = 3;
 			// 
 			// attachToProcessToolStripSplitButton
@@ -1050,7 +1054,7 @@ namespace ReClassNET.Forms
             this.infoToolStripStatusLabel});
 			this.statusStrip.Location = new System.Drawing.Point(0, 573);
 			this.statusStrip.Name = "statusStrip";
-			this.statusStrip.Size = new System.Drawing.Size(1313, 22);
+			this.statusStrip.Size = new System.Drawing.Size(1103, 22);
 			this.statusStrip.TabIndex = 1;
 			// 
 			// processInfoToolStripStatusLabel
@@ -1075,7 +1079,7 @@ namespace ReClassNET.Forms
             this.helpToolStripMenuItem});
 			this.mainMenuStrip.Location = new System.Drawing.Point(0, 0);
 			this.mainMenuStrip.Name = "mainMenuStrip";
-			this.mainMenuStrip.Size = new System.Drawing.Size(1313, 24);
+			this.mainMenuStrip.Size = new System.Drawing.Size(1103, 24);
 			this.mainMenuStrip.TabIndex = 2;
 			// 
 			// fileToolStripMenuItem
@@ -1394,12 +1398,32 @@ namespace ReClassNET.Forms
 			this.aboutToolStripMenuItem.Text = "About...";
 			this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
 			// 
+			// undoToolbarMenuItem
+			// 
+			this.undoToolbarMenuItem.Image = global::ReClassNET.Properties.Resources.B16x16_Undo;
+			this.undoToolbarMenuItem.Name = "undoToolbarMenuItem";
+			this.undoToolbarMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
+			this.undoToolbarMenuItem.Size = new System.Drawing.Size(28, 25);
+			this.undoToolbarMenuItem.ToolTipText = "Undo the latest change";
+			this.undoToolbarMenuItem.Value = null;
+			this.undoToolbarMenuItem.Click += new System.EventHandler(this.undoToolbarMenuItem_Click);
+			// 
+			// redoToolbarMenuItem
+			// 
+			this.redoToolbarMenuItem.Image = global::ReClassNET.Properties.Resources.B16x16_Redo;
+			this.redoToolbarMenuItem.Name = "redoToolbarMenuItem";
+			this.redoToolbarMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Y)));
+			this.redoToolbarMenuItem.Size = new System.Drawing.Size(28, 25);
+			this.redoToolbarMenuItem.ToolTipText = "Redo the latest undone change";
+			this.redoToolbarMenuItem.Value = null;
+			this.redoToolbarMenuItem.Click += new System.EventHandler(this.redoToolbarMenuItem_Click);
+			// 
 			// MainForm
 			// 
 			this.AllowDrop = true;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(1313, 595);
+			this.ClientSize = new System.Drawing.Size(1103, 595);
 			this.Controls.Add(this.splitContainer);
 			this.Controls.Add(this.toolStrip);
 			this.Controls.Add(this.statusStrip);
@@ -1572,6 +1596,8 @@ namespace ReClassNET.Forms
 		private System.Windows.Forms.ToolStripMenuItem isLittleEndianToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem initClassToolStripMenuItem;
 		private TypeToolStripMenuItem initClassFromRTTIToolStripBarMenuItem;
+		private TypeToolStripMenuItem undoToolbarMenuItem;
+		private TypeToolStripMenuItem redoToolbarMenuItem;
 	}
 }
 
